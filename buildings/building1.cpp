@@ -45,10 +45,10 @@ void Building1::draw( void )
     }
     
     glBegin(GL_POLYGON);
-    glVertex2f(x, y);
-    glVertex2f(x+width, y);
-    glVertex2f(x+width, y+buildHeight);
-    glVertex2f(x, y+buildHeight);
+    glVertex3f(x, y,0.0f);
+    glVertex3f(x+width, y,0.0f);
+    glVertex3f(x+width, y+buildHeight,0.0f);
+    glVertex3f(x, y+buildHeight,0.0f);
     glEnd();
     
     // draw windows
@@ -66,10 +66,10 @@ void Building1::drawWindows(float _at_height)
     for(int i = 0;i<=2;i++)
     {
         glBegin(GL_POLYGON);
-        glVertex2f(x+(0.1f+(0.3f*i)), y+(0.1f+(0.5f*at_height)));
-        glVertex2f(x+(0.3f+(0.3f*i)), y+(0.1f+(0.5f*at_height)));
-        glVertex2f(x+(0.3f+(0.3f*i)), y+(0.4f+(0.5f*at_height)));
-        glVertex2f(x+(0.1f+(0.3f*i)), y+(0.4f+(0.5f*at_height)));
+        glVertex3f(x+(0.1f+(0.3f*i)), y+(0.1f+(0.5f*at_height)),0.1f);
+        glVertex3f(x+(0.3f+(0.3f*i)), y+(0.1f+(0.5f*at_height)),0.1f);
+        glVertex3f(x+(0.3f+(0.3f*i)), y+(0.4f+(0.5f*at_height)),0.1f);
+        glVertex3f(x+(0.1f+(0.3f*i)), y+(0.4f+(0.5f*at_height)),0.1f);
         
         glEnd();
     }

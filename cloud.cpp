@@ -46,11 +46,11 @@ void Cloud::drawCircle(float _x,float _y, float _size)
         {
             counter =0;
             i-= 360/circleParts;
-            glVertex2f(x, y);
+            glVertex3f(x, y,-0.5f);
         }
         
         float rad = 0.017453f * (float)i;
-        glVertex2f((size*cosf(rad))+x, (size*sinf(rad))+y);
+        glVertex3f((size*cosf(rad))+x, (size*sinf(rad))+y,-0.5f);
         
     }
     glScalef(size,size,size);

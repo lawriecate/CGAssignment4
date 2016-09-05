@@ -12,14 +12,14 @@ Background::Background(float _width, float _height)
 {
     width = _width;
     height = _height;
-    cloud1 = new Cloud(1.0f,3.0f,1.0f);
-    cloud2 = new Cloud(1.5f,4.0f,1.0f);
-    cloud3 = new Cloud(2.0f,3.0f,1.0f);
-    building1 = new Building1(0.0f,0.0f,2,0);
-    building2 = new Building1(1.0f,0.0f,4,1);
-    building3 = new Building1(2.0f,0.0f,3,2);
-    building4 = new Building1(3.0f,0.0f,6,3);
-    building5 = new Building1(4.0f,0.0f,4,4);
+    cloud1 = new Cloud(-0.9f,0.8f,0.7f);
+    cloud2 = new Cloud(-0.5f,1.2f,1.0f);
+    cloud3 = new Cloud(1.0f,1.0f,1.0f);
+    building1 = new Building1(-2.0f,-1.0f,2,0);
+    building2 = new Building1(-1.0f,-1.0f,4,1);
+    building3 = new Building1(-0.0f,-1.0f,3,2);
+    building4 = new Building1(1.0f,-1.0f,6,3);
+    building5 = new Building1(2.0f,-1.0f,4,4);
 }
 
 Background::~Background( void )
@@ -31,10 +31,10 @@ void Background::draw(  )
     // sky
     glColor3f( 0.3f, 0.3f, 0.9f );
     glBegin(GL_POLYGON);
-    glVertex2f(0.0f,0.0f);
-    glVertex2f(width,0.0f);
-    glVertex2f(width,height);
-    glVertex2f(0.0f,height);
+    glVertex3f(-5.0f,-5.0f,-1.0f);
+    glVertex3f(5.0f,-5.0f,-1.0f);
+    glVertex3f(5.0f,5.0f,-1.0f);
+    glVertex3f(-5.0f,5.0f,-1.0f);
     glEnd();
     
     glColor3f( 1.0f, 1.0f, 1.0f );
@@ -42,9 +42,9 @@ void Background::draw(  )
     
     glBegin( GL_POLYGON ); //Arriba
     // mountain
-    glVertex2f(0.0f, 0.0f);
-    glVertex2f(0.5f, 0.0f);
-    glVertex2f(0.25f, 0.5f);
+    glVertex3f(-5.0f, 0.0f,1.0f);
+    glVertex3f(-4.5f, 0.0f,1.0f);
+    glVertex3f(-4.75f, 0.5f,1.0f);
     glEnd();
     
     cloud1->draw();
