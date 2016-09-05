@@ -10,7 +10,7 @@
 
 Train::Train(void)
 {
-    x = -3.0f;
+    x = -4.0f;
     
 }
 
@@ -74,4 +74,7 @@ void Train::draw( void )
 void Train::choochoo()
 {
     x = x + 0.01f;
+    if(x >= 4.0f) {
+        x = -4.0f;
+    }
 }

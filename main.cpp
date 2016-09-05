@@ -26,13 +26,17 @@
 
 #include "background.hpp"
 #include "train.hpp"
+#include "boat.hpp"
 
 Background* background;
-Train* train;
+//Train* train;
+Boat* boat;
 int width,height;
+float boat_x,boat_y,boat_z;
 
 void display( void )
 {
+    boat=new Boat(boat_x,boat_y);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     gluLookAt(0.0, 0.0, 5.0,										// Where the camera is.
@@ -42,7 +46,11 @@ void display( void )
     glColor3f(1.0f, 0.0f, 0.0f);
     //glutWireCube(1.0f);
     background->draw();
-    train->draw();
+  //  train->draw();
+    
+    
+    boat->draw();
+    
     //glPopMatrix();
     
     glutSwapBuffers();
@@ -51,8 +59,8 @@ void display( void )
 void init()
 {
     background = new Background(width,height);
-    train = new Train();
-    
+  //  train = new Train();
+    //boat=new Boat(boat_x,boat_y);
     glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
     glShadeModel( GL_SMOOTH );
     glEnable(GL_DEPTH_TEST);
@@ -69,7 +77,10 @@ void init()
 void idle( void )
 {
 // object functions eg ball bounce
-    train->choochoo();
+   // train->choochoo();
+    boat_x+=0.005f;
+    boat_y+=30;
+    boat_z+=0.001f;
     glutPostRedisplay();
 }
 
@@ -80,8 +91,11 @@ void reshape(int x, int y)											// Called when the window geometry changes.
     gluPerspective(40.0, (GLdouble)x / (GLdouble)y, 0.5, 20.0);		// Configure the camera lens aperture.
     glMatrixMode(GL_MODELVIEW);										// Go to 3D mode.
     glViewport(0, 0, x, y);											// Configure the camera frame dimensions.
-    gluLookAt(0.0, 0.0, 4.0,
+  /*  gluLookAt(0.0, 0.0, 4.0,
               0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0);*/
+    gluLookAt(2.5, 0.5, 0.4,
+              0.0, 1.5, 0.0,
               0.0, 1.0, 0.0);
     display();
 }
