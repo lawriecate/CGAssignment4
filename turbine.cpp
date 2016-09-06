@@ -20,15 +20,15 @@ void Turbine::draw( void )
     // STORE state.
     //glTranslatef(-5.0f, -0.1f, 0);
     glColor3f(0.0f,0.0f, 0.0f);
-    glRotated(-r, 1.0, 1.0, 0.0);
-    glScalef(0.3,0.3, 1);
+    glRotated(r,0.0,1.0, 1.0);
+    glScalef(0.4,0.4,0.4);
     glutSolidTetrahedron();
     glPopMatrix();
     
 }
 void Turbine::spin(void)
 {
-    r+=2;
+    r+=30;
     if(r==361)
     {
         r=0;

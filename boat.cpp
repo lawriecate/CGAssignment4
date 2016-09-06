@@ -12,7 +12,7 @@ Turbine* turbine;
 Boat::Boat( void)
 {
     x = -3.0f;
-    y = -0.8f;
+    y = -0.9f;
     z = 2.0f;
     turbine=new Turbine();
 }
@@ -23,22 +23,17 @@ Boat::~Boat( void )
 
 void Boat::draw( void )
 {
-     glColor3f(0.41f,0.30f, 0.22f);
+    glColor3f(0.41f,0.30f, 0.22f);
     glPushMatrix();
     // STORE state.
-   
     glTranslatef(x,y,z);
-    glutSolidCube(0.5);
-    glPopMatrix();
-    
-    glPushMatrix();
-    
-    glTranslatef(x+0.25,y, z);
-    glRotatef(225,0.0, 1.0, 0.0);
-    glScalef(0.45,0.45, 1);
-    
+    glScalef(0.4,0.2,0.3);
+    glutSolidCube(1);
+    glTranslatef(0.65,0.25,0.1);
+    glRotatef(45,1.0,0.0,1.0);
+    glScalef(1,0.9,0.9);
     glutSolidTetrahedron();
-    glTranslatef(x+2,0,0);
+    glTranslatef(-1.3,0.0,0.0);
     turbine->draw();
     glPopMatrix();
     
@@ -46,7 +41,7 @@ void Boat::draw( void )
 
 void Boat::move(void)
 {
-    x+=0.005f;
+    x+=0.01f;
     if(x >= 3.0f) {
         x = -3.0f;
     }
