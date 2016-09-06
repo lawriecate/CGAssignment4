@@ -16,10 +16,12 @@
 #include <GLUT/glut.h>
 #include <OPENGL/glu.h>
 
+#include "wheel.hpp"
+
 class Train
 {
 public:
-    float x;
+    float x,y,z;
     Train(void);
     ~Train( void );
     
@@ -27,5 +29,14 @@ public:
     
     void choochoo();
 private:
- 
+    Wheel* wheel1;
+    Wheel* wheel2;
+    Wheel* wheel3;
+    Wheel* wheel4;
+    Wheel* wheel5;
+    Wheel* wheel6;
+    Wheel* wheel7;
+    Wheel* wheel8;
+    Wheel* wheel9;
+    Wheel* wheel10;
 };

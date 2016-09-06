@@ -56,6 +56,22 @@ void Background::draw(  )
     building4->draw();
     building5->draw();
     
+    // rail track
+    glColor3f(0.4f, 0.4f, 0.4f);
+    glBegin( GL_POLYGON );
+    glVertex3f(-5.0f, -0.75f,1.1f);
+    glVertex3f(-5.0f, -0.95f,1.4f);
+    glVertex3f(5.0f, -0.95f, 1.4f);
+     glVertex3f(5.0f, -0.75f, 1.1f);
+    glEnd();
+    
     
     glLineWidth( 1.0f );
+}
+
+void Background::update()
+{
+    cloud1->move();
+    cloud2->move();
+    cloud3->move();
 }

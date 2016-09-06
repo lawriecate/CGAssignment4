@@ -29,14 +29,13 @@
 #include "boat.hpp"
 
 Background* background;
-//Train* train;
+Train* train;
 Boat* boat;
 int width,height;
-float boat_x,boat_y,boat_z;
 
 void display( void )
 {
-    boat=new Boat(boat_x,boat_y);
+    
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     gluLookAt(0.0, 0.0, 5.0,										// Where the camera is.
@@ -46,10 +45,11 @@ void display( void )
     glColor3f(1.0f, 0.0f, 0.0f);
     //glutWireCube(1.0f);
     background->draw();
-  //  train->draw();
     
     
     boat->draw();
+    train->draw();
+
     
     //glPopMatrix();
     
@@ -59,7 +59,9 @@ void display( void )
 void init()
 {
     background = new Background(width,height);
-  //  train = new Train();
+    train = new Train();
+    boat=new Boat();
+    
     //boat=new Boat(boat_x,boat_y);
     glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
     glShadeModel( GL_SMOOTH );
@@ -77,10 +79,10 @@ void init()
 void idle( void )
 {
 // object functions eg ball bounce
-   // train->choochoo();
-    boat_x+=0.005f;
-    boat_y+=30;
-    boat_z+=0.001f;
+    
+    train->choochoo();
+    boat->move();
+    background->update();
     glutPostRedisplay();
 }
 

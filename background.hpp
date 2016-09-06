@@ -32,7 +32,7 @@ public:
     Building1* building5;
     Background(float _width,float _height);
     ~Background( void );
-    
+    void update(void);
     void draw( void );
 
 };

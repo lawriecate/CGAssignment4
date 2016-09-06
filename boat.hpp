@@ -18,9 +18,11 @@ public:
     
     float x;
     float y;
+    float z;
     const int width = 1;
-    Boat(float _x,float _y);
+    Boat(void);
     ~Boat( void );
     void draw( void );
+    void move( void );
 };
 #endif /* boat_hpp */

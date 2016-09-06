@@ -27,6 +27,7 @@ public:
     ~Cloud( void );
     
     void draw( void );
+    void move(void);
 private:
     void drawCircle(float _x,float _y, float _size);
 };

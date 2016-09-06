@@ -20,9 +20,10 @@ class Turbine
 {
 public:
     
-    float x;
+    float r;
     const int width = 1;
-    Turbine(float _x);
+    Turbine();
     ~Turbine( void );
     void draw( void );
+    void spin(void);
 };

@@ -56,3 +56,11 @@ void Cloud::drawCircle(float _x,float _y, float _size)
     glScalef(size,size,size);
     glEnd();
 }
+
+void Cloud::move(void)
+{
+    x+=0.005f;
+    if(x>=4.0f) {
+        x = -4.0f;
+    }
+}
